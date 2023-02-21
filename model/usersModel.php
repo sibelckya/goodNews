@@ -12,10 +12,10 @@ class UsersModel
     }
 
 
-    public function setUser()
+    public function setUser($nom,$prenom,$email,$tel,$mdp)
     {
         $insert = $this->bdd->prepare("INSERT INTO utilisateurs(nom,prenom,tel,email,mdp) value(?,?,?,?,?)");
-        return $insert->execute([$_POST['nom'], $_POST['prenom'], $_POST['tel'], $_POST['email'], $_POST['mdp']]);
+        return $insert->execute([$nom,$prenom,$email,$tel,$mdp]);
     }
     public function getUserByEmail()
     {

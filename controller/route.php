@@ -14,20 +14,25 @@ switch (@$_GET['p']) {
         $articles->getArticleById($_GET['id']);
         break;
     case 'inscription':
-        include('view/inscription.php');
+        $user = new usersController;
+        if(isset($_POST['nom'])){
+            $user->setUser();
+        }else{
+            $user->inscription();
+        }
         break;
-    case 'setInscription':
-        include('controller/usersController.php');
-        $inscription = new usersController;
-        $inscription->inscription();
-        break;
-    case 'authentification':
-        include('view/authentification.php');
-        break;
+    // case 'setInscription':
+    //     include('controller/usersController.php');
+    //     $inscription = new usersController;
+    //     $inscription->inscription();
+    //     break;
+    // case 'authentification':
+    //     include('view/authentification.php');
+    //     break;
 
-    case 'setAuth':
-        include('controller/usersController.php');
-        $authentification = new usersController;
-        $authentification->authentification();
-        break;
+    // case 'setAuth':
+    //     include('controller/usersController.php');
+    //     $authentification = new usersController;
+    //     $authentification->authentification();
+    //     break;
 }
