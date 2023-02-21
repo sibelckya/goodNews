@@ -28,6 +28,9 @@
                 <li>
                     <a href="index.php?p=inscription">Inscription</a>
                 </li>
+                <li>
+                    <a href="index.php?p=connexion">Connexion</a>
+                </li>
             </ul>
         </div>
     </div>
