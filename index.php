@@ -1,4 +1,6 @@
 <?php
+
+    session_start();
     include_once('model/bdd.php');
 
     include_once('controller/articlesController.php');

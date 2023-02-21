@@ -30,6 +30,11 @@ switch (@$_GET['p']) {
             $user->connexion();
         }
         break;
+
+    case 'deconnexion':
+        $_SESSION = [];
+        header("Location: index.php");
+        break;
     // case 'setInscription':
     //     include('controller/usersController.php');
     //     $inscription = new usersController;

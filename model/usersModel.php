@@ -14,7 +14,7 @@ class UsersModel
 
     public function setUser($nom,$prenom,$email,$tel,$mdp)
     {
-        $insert = $this->bdd->prepare("INSERT INTO utilisateurs(nom,prenom,tel,email,mdp) value(?,?,?,?,?)");
+        $insert = $this->bdd->prepare("INSERT INTO utilisateurs(nom,prenom,email,tel,mdp) value(?,?,?,?,?)");
         return $insert->execute([$nom,$prenom,$email,$tel,$mdp]);
     } 
     

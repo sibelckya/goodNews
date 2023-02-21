@@ -37,7 +37,7 @@
                 <!-- Dans ce bloc, il permet d'afficher "ajouter une article" lorsque l'utilisateur est un administrateur-->
                 <?php if ($_SESSION['id_role']== 1){?>
                 <li> 
-                    <a href="?p=formAjoutArticle">Ajouter un article</a> 
+                    <a href="?p=AjoutArticle">Ajouter un article</a> 
                 </li>
                 <?php } ?>
                 <li>
@@ -50,7 +50,7 @@
                     <a href="?p=inscription">Inscription</a>
                 </li>
                 <li>
-                    <a href="?p=formConnexion">Connexion</a>
+                    <a href="?p=connexion">Connexion</a>
                 </li>
                 <?php } ?>
                
