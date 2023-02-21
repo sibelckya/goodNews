@@ -20,10 +20,10 @@ class UsersModel
     
     public function getUserByEmail($email){
 
-        $sql = "SELECT users.* , roles.* FROM users
-        LEFT JOIN affecter ON affecter.id_user = users.id_user
+        $sql = "SELECT utilisateurs.* , roles.* FROM utilisateurs
+        LEFT JOIN affecter ON affecter.id_user = utilisateurs.id_user
         LEFT JOIN roles ON affecter.id_role = roles.id_role
-        WHERE users.email= '$email'";
+        WHERE utilisateurs.email= '$email'";
 
         return $this->bdd->query($sql)->fetch();
     }
