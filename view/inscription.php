@@ -63,12 +63,12 @@ if (isset($_POST["mdp"])) {
 <form action="index.php?page=setInscription" method="post">
 
 
-    Nom : <input type="text" name="nom"><br>
-    Prénom : <input type="text" name="prenom"><br>
-    Tél : <input type="tel" name="tel"><br>
-    Email : <input type="email" name="email"><br>
-    Mdp : <input type="password" name="mdp"><br>
-    <button type="">S'inscrire</button>
+    Nom : <input type="text" name="nom" class="input input-bordered input-xs w-full max-w-xs" ><br>
+    Prénom : <input type="text" name="prenom" class="input input-bordered input-sm w-full max-w-xs"><br>
+    Tél : <input type="tel" name="tel" class="input input-bordered input-md w-full max-w-xs"><br>
+    Email : <input type="email" name="email" class="input input-bordered input-lg w-full max-w-xs"><br>
+    Mdp : <input type="password" name="mdp" class="input input-bordered input-lg w-full max-w-xs"><br>
+    <button type="" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">S'inscrire</button>
 
 </form>
 </body>
