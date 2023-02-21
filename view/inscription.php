@@ -1,51 +1,4 @@
-<?php
-$nom = "";
-$prenom = "";
-$email = "";
-$tel = "";
-$mdp = "";
 
-$errorNom = "";
-$errorEmail = "";
-$errorTel = "";
-$errorMdp = "";
-$errorPrenom = "";
-
-if (isset($_POST['nom'])) {
-    if (!empty($_POST["nom"])) {
-        $nom = $_POST["nom"];
-    } else {
-        $errorNom = "le nom est obligatoire";
-    }
-}
-
-if (isset($_POST["email"])) {
-    if ($_POST["email"] != "") {
-        $email = $_POST["email"];
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errorEmail = "l'email est invalide";
-    } else {
-        $errorEmail = "l'email est obligatoire";
-    }
-}
-if (isset($_POST["mdp"])) {
-
-    if ($_POST["mdp"] != "") {
-        $mdp = $_POST["mdp"];
-    } else {
-        $errorMdp = "le mot de passe est obligatoire";
-    }
-    if (isset($_POST["prenom"])) {
-
-        if ($_POST["prenom"] != "") {
-            $message = $_POST["prenom"];
-        } else {
-            $errorMessage = "le prénom est obligatoire";
-        }
-    }
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,8 +12,8 @@ if (isset($_POST["mdp"])) {
 </head>
 <body>
 
-<div><?= @$erreur ?></div>
-<form action="index.php?page=setInscription" method="post">
+
+<form action="" method="post">
 
 
     Nom : <input type="text" name="nom"><br>
