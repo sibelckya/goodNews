@@ -14,7 +14,7 @@ switch (@$_GET['p']) {
         $articles->getArticleById($_GET['id']);
         break;
     case 'inscription':
-        $user = new usersController;
+        $user = new UsersController;
         if(isset($_POST['nom'])){
             $user->setUser();
         }else{
