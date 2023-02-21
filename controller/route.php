@@ -18,7 +18,7 @@ switch (@$_GET['p']) {
         break;
     case 'setInscription':
         include('controller/usersController.php');
-        $inscription = new UsersController;
+        $inscription = new usersController;
         $inscription->inscription();
         break;
     case 'authentification':
@@ -27,7 +27,7 @@ switch (@$_GET['p']) {
 
     case 'setAuth':
         include('controller/usersController.php');
-        $authentification = new UsersController;
+        $authentification = new usersController;
         $authentification->authentification();
         break;
 }
