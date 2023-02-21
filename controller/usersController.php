@@ -26,6 +26,28 @@ class UsersController
     }
 }
 
+    public function connexion(){
+        include('view/connexion.php');
+    }
+
+    public function authentification(){
+        $email = $_POST['email'];
+        $mdp = $_POST['mdp'];
+
+        $user = $this->model->getUserByEmail($email);
+
+        if (password_verify($mdp, $user['mdp'])){
+            $_SESSION['id_user'] = $user['id_user'];
+            $_SESSION['nom'] = $user['nom'];
+            $_SESSION['prenom'] = $user['prenom'];
+            $_SESSION['role'] = $user['role'];
+            $_SESSION['id_role'] = $user['id_role'];
+
+            header("Location: index.php");//redirection vers index.php
+        }else{
+            $this->connexion();
+        }
+    }
 
 
     // public function authentification()

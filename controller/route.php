@@ -21,6 +21,15 @@ switch (@$_GET['p']) {
             $user->inscription();
         }
         break;
+
+    case 'connexion':
+        $user = new usersController;
+        if(isset($_POST['email'])){
+            $user->authentification();
+        }else{
+            $user->connexion();
+        }
+        break;
     // case 'setInscription':
     //     include('controller/usersController.php');
     //     $inscription = new usersController;
