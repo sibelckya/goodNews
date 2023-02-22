@@ -1,4 +1,6 @@
 <?php
+
+session_start();
     include_once('model/bdd.php');
 
     include_once('controller/articlesController.php');
@@ -11,5 +13,3 @@
     include('view/header.php');
     include('controller/route.php');
     include('view/footer.php');
-
-    ?>
