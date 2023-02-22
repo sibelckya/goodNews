@@ -1,6 +1,5 @@
 <?php
 
-
 switch (@$_GET['p']) {
         // index.php?p=articles
     case 'articles':
@@ -14,20 +13,48 @@ switch (@$_GET['p']) {
         $articles->getArticleById($_GET['id']);
         break;
     case 'inscription':
-        include('view/inscription.php');
+        $user = new UsersController;
+        if (isset($_POST['nom'])) {
+            $user->setUser();
+        } else {
+            $user->inscription();
+        }
+        break;
+
+    case 'connexion':
+        $user = new usersController;
+        if (isset($_POST['email'])) {
+            $user->authentification();
+        } else {
+            $user->connexion();
+        }
+        break;
+
+    case 'deconnexion':
+        $_SESSION = [];
+        header("Location: index.php");
         break;
     case 'setInscription':
-        include('controller/usersController.php');
-        $inscription = new UsersController;
+        include_once('controller/usersController.php');
+        $inscription = new usersController;
         $inscription->inscription();
         break;
     case 'authentification':
-        include('view/authentification.php');
+        include('view/connexion.php');
         break;
 
     case 'setAuth':
-        include('controller/usersController.php');
-        $authentification = new UsersController;
+        include_once('controller/usersController.php');
+        $authentification = new usersController;
         $authentification->authentification();
+        break;
+    case 'formAjoutArticle':
+        $articles = new ArticlesController;
+
+        if (isset($_POST['titre'])) {
+            $articles->setArticle();
+        } else {
+            $articles->formAjoutArticle();
+        }
         break;
 }
