@@ -1,35 +1,19 @@
+<h1>Ajouter un article</h1>
 
-<div class="flex justify-center ...">
-    <form action="" method="POST">
-        Catégorie :
-        <select name="idCategorie" class="select select-accent w-full max-w-xs">
+<form action="" method="post" enctype="multipart/form-data">
+    
+    Titre : <input type="text" name="titre" id="titre"><br>
+    Contenu : <textarea name="contenu" id="contenu" cols="30" rows="10"></textarea><br>
+    Image : <input type="file" name="image" id="image"><br>
 
-
-            <?php foreach ($cats as $categorie) { ?>
-
-                <option value="<?= $categorie['idCategorie'] ?>"><?= $categorie['nom'] ?></option>
-
-            <?php } ?>
-
-        </select>
-        <br>
-        Titre : <br>
-        <input type="text" name="titre" class="input input-bordered input-secondary w-full max-w-xs">
-        <br>
-        Contenu : <br>
-        <textarea name="contenu" class="textarea textarea-secondary"></textarea>
-        <br>
-        Image : <br>
-        <input type="file" name="image" class="file-input file-input-bordered file-input-primary w-full max-w-xs">
-
-        <br>Id_user :<br>
-        <input type="id" name="id_user" class="input input-bordered input-secondary w-full max-w-xs">
-
-        <br>Id_categorie :<br>
-        <input type="id" name="id_categorie" class="input input-bordered input-secondary w-full max-w-xs">
-        <br> <br>
-        <button class="btn btn-primary">Ajouter</button>
-        <br> <br>
-
-    </form>
-</div>
+    Categorie :
+    <select name="id_categorie">
+        <?php foreach ($categories as $categorie) { ?>
+            <option value="<?= $categorie['idCategorie'] ?>">
+                <?= $categorie['nom'] ?>
+            </option>
+        <?php } ?>
+    </select>
+    <br>
+    <button>Ajouter</button>
+</form>
