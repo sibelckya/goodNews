@@ -44,6 +44,8 @@ class articlesController
     }
     public function setArticle()
     {
+
+        $image = $this->fileUpload();
         $ajout = $this->model->setArticle($_POST['titre'], $_POST['contenu'], $_POST['image'], $_POST['id_user'], $_POST['id_categorie']);
         if ($ajout) {
             echo "<h1>Article ajouté</h1>";
@@ -64,24 +66,12 @@ class articlesController
             $this->formDeleteArticle();
         }
     }
-    public function modArticle()
-    {
 
-
-        $image = $this->fileUpload();
-
-        $ajout = $this->model->setArticle($_POST['titre'], $_POST['contenu'], $image, $_SESSION['id_user'], $_POST['id_categorie']);
-        if ($ajout) {
-            echo "Article ajouté";
-        } else {
-            $this->formAjoutArticle();
-        }
-    }
 
     public function fileUpload()
     {
         //  var_dump($_FILES['fichier']);
-        
+
         $fichier = explode('.', $_FILES['image']['name']);
         $extension = end($fichier); // recuperer l'extention du fichier ex : jpj png pdf ...
 

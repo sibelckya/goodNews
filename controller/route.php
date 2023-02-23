@@ -58,11 +58,16 @@ switch (@$_GET['p']) {
         }
         break;
     case 'deleteArticle':
-        $articles = new articlesController;
-        if (isset($_POST['id'])) {
-            $user->deleteArticle();
+        if (@$_SESSION['id_role'] == 1) {
+            $articles = new articlesController;
+
+            if (isset($_POST['id'])) {
+                $user->deleteArticle();
+            } else {
+                $user->formDeleteArticle();
+            }
         } else {
-            $user->formDeleteArticle();
+            echo "accès interdit";
         }
         break;
 }
