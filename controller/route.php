@@ -57,4 +57,12 @@ switch (@$_GET['p']) {
             $articles->formAjoutArticle();
         }
         break;
+    case 'deleteArticle':
+        $articles = new articlesController;
+        if (isset($_POST['id'])) {
+            $user->deleteArticle();
+        } else {
+            $user->formDeleteArticle();
+        }
+        break;
 }
