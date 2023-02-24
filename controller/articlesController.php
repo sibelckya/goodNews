@@ -1,6 +1,6 @@
 <?php
 
-include('model/articlesModel.php');
+include_once('model/articlesModel.php');
 
 class articlesController
 {
@@ -9,7 +9,7 @@ class articlesController
     private $titre;
     private $contenu;
     private $image;
-    private $vue;
+    private $dateCreation;
     private $id_user;
     private $id_categorie;
 
@@ -40,16 +40,28 @@ class articlesController
     }
     public function formAjoutArticle()
     {
+        $categories = new categoriesModel;
+        $categories = $categories->getCategories();
         include('view/ajouterUnArticle.php');
     }
     public function setArticle()
     {
 
-        $image = $this->fileUpload();
-        $ajout = $this->model->setArticle($_POST['titre'], $_POST['contenu'], $_POST['image'], $_POST['id_user'], $_POST['id_categorie']);
-        if ($ajout) {
-            echo "<h1>Article ajouté</h1>";
+        $this->id_categorie = $_POST['id_categorie'];
+        $this->titre = $_POST['titre'];
+        $this->contenu = $_POST['contenu'];
+        $this->image = $this->fileUpload();
+        $this->dateCreation = date("Y-m-d");
+        $this->id_user = $_SESSION['id_user'];
+
+        if ($this->titre != '' && $this->contenu != '' && $this->id_categorie != '' && $this->dateCreation != '') {
+            if ($this->setArticle()) {
+                $_SESSION['article_message'] = "Article Ajoutée ";
+                header('Location: index.php');
+                exit;
+            }
         } else {
+            echo '<h2>Veuiller remplir tout les champs</h2>';;
             $this->formAjoutArticle();
         }
     }

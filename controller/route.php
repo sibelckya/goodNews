@@ -40,7 +40,7 @@ switch (@$_GET['p']) {
         $inscription->inscription();
         break;
     case 'authentification':
-        include('view/connexion.php');
+        include_once('view/connexion.php');
         break;
 
     case 'setAuth':
@@ -49,6 +49,7 @@ switch (@$_GET['p']) {
         $authentification->authentification();
         break;
     case 'formAjoutArticle':
+        include_once('controller/articlesController.php');
         $articles = new ArticlesController;
 
         if (isset($_POST['titre'])) {
