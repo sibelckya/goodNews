@@ -20,6 +20,9 @@ switch (@$_GET['p']) {
             $user->inscription();
         }
         break;
+    case 'contact':
+        include('view/contact.php');
+        break;
 
     case 'connexion':
         $user = new usersController;
