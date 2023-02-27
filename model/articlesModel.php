@@ -29,6 +29,13 @@ class articlesModel
 
     }
 
+    public function setArticle($titre, $contenu, $image, $id_user, $id_cat)
+    {
+        $date = date('Y-m-d');
+        $ajout = $this->db->prepare("INSERT INTO articles(titre,contenu,image,dateCreation,id_user,id_categorie) VALUES(?,?,?,?,?,?)");
+        return $ajout->execute([$titre, $contenu, $image, date('Y-m-d'), $id_user, $id_cat]);
+    }
+
     public function deleteArticle($id){
         
         $delete = $this->db->prepare("DELETE FROM articles WHERE id_article=?");

@@ -35,6 +35,17 @@ switch (@$_GET['p']) {
         $_SESSION = [];
         header("Location: index.php");
         break;
+
+        case 'formAjoutArticle':
+            include_once('controller/articlesController.php');
+            $articles = new ArticlesController;
+    
+            if (isset($_POST['titre'])) {
+                $articles->setArticle();
+            } else {
+                $articles->formAjoutArticle();
+            }
+            break;
     // case 'setInscription':
     //     include('controller/usersController.php');
     //     $inscription = new usersController;
