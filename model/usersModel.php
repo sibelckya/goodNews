@@ -29,32 +29,24 @@ class UsersModel
     }
 
     public function getUserById($id){
-        return $this->bdd->query("SELECT * FROM users WHERE id_user=$id")->fetch();
+        return $this->bdd->query("SELECT * FROM utilisateurs WHERE id_user=$id")->fetch();
     }
 
-
-
-
-
-
-    // public function getUserByEmail()
-    // {
-    //     $email = $_POST['email'];
-    //     $query = "SELECT * FROM users WHERE email = :email";
-    //     $stmt = $this->bdd->prepare($query);
-    //     $stmt->bindParam(':email', $email);
-    //     $stmt->execute();
-    //     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    //     return $result;
-    // }
-    // public function getUserById($id)
-    // {
-    //     return $this->bdd->query("SELECT * FROM utilisateurs WHERE id='$id'")->fetch(PDO::FETCH_ASSOC);
-    // }
-
-    public function updateUser()
-    {
-        #code
+    public function updateUser($nom, $prenom, $tel, $email, $id_user): void {
+        $updateUserStmt = $this->bdd->prepare("
+            UPDATE utilisateurs
+            SET nom = :nom,
+                prenom = :prenom,
+                tel = :tel,
+                email = :email
+            WHERE id_user = :id_user
+        ");
+        $updateUserStmt->bindValue(':nom', $nom);
+        $updateUserStmt->bindValue(':prenom', $prenom);
+        $updateUserStmt->bindValue(':tel', $tel);
+        $updateUserStmt->bindValue(':email', $email);
+        $updateUserStmt->bindValue(':id_user', $id_user);
+        $updateUserStmt->execute();
     }
     public function deleteUser($id)
     {
