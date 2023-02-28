@@ -1,26 +1,41 @@
 <?php
 
-switch (@$_GET['p']) {
-        // index.php?p=articles
-    case 'articles':
+// inclusion des contrôleurs
+require_once('controller/articlesController.php');
+require_once('controller/usersController.php');
 
-        $articles = new articlesController;
-        $articles->getArticles();
+// récupération de la page demandée
+$page = $_GET['p'] ?? 'articles';
+
+switch ($page) {
+    case 'articles':
+        // affichage des articles
+        $articlesController = new ArticlesController();
+        $articlesController->getArticles();
         break;
-        // index.php?p=article&id=1  
     case 'article':
-        $articles = new articlesController;
-        $articles->getArticleById($_GET['id']);
-        break;
-    case 'inscription':
-        $user = new UsersController;
-        if (isset($_POST['nom'])) {
-            $user->setUser();
+        // affichage d'un article
+        $id_article = $_GET['id'] ?? null;
+        if ($id_article !== null) {
+            $articlesController = new ArticlesController();
+            $articlesController->getArticleById($id_article);
         } else {
-            $user->inscription();
+            // id_article non fourni
+            echo "Erreur : aucun article sélectionné";
         }
         break;
+    case 'inscription':
+        // inscription utilisateur
+        $usersController = new UsersController();
+        $usersController->inscription();
+        break;
+    case 'setInscription':
+        // traitement formulaire d'inscription
+        $usersController = new UsersController();
+        $usersController->setUser();
+        break;
     case 'contact':
+        // affichage de la page de contact
         include('view/contact.php');
         break;
 
@@ -36,11 +51,6 @@ switch (@$_GET['p']) {
     case 'deconnexion':
         $_SESSION = [];
         header("Location: index.php");
-        break;
-    case 'setInscription':
-        include_once('controller/usersController.php');
-        $inscription = new usersController;
-        $inscription->inscription();
         break;
     case 'authentification':
         include_once('view/connexion.php');
@@ -73,5 +83,19 @@ switch (@$_GET['p']) {
         } else {
             echo "accès interdit";
         }
+        break;
+    case 'monCompte':
+        $userController = new UsersController();
+        $userController->monCompte();
+        break;
+
+    case 'modifierMonCompte':
+        $userController = new UsersController();
+        $userController->modifierMonCompte();
+        break;
+
+    case 'modification':
+        $userController = new UsersController();
+        $userController->modification();
         break;
 }

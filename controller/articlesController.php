@@ -55,7 +55,7 @@ class articlesController
         $this->id_user = $_SESSION['id_user'];
 
         if ($this->titre != '' && $this->contenu != '' && $this->id_categorie != '' && $this->dateCreation != '') {
-            if ($this->setArticle()) {
+            if ($this->model->setArticle($this->titre,$this->contenu,$this->image,$this->id_user,$this->id_categorie)) {
                 $_SESSION['article_message'] = "Article Ajoutée ";
                 header('Location: index.php');
                 exit;
@@ -82,7 +82,7 @@ class articlesController
 
     public function fileUpload()
     {
-        //  var_dump($_FILES['fichier']);
+          var_dump($_FILES['image']);
 
         $fichier = explode('.', $_FILES['image']['name']);
         $extension = end($fichier); // recuperer l'extention du fichier ex : jpj png pdf ...
