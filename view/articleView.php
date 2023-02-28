@@ -4,6 +4,6 @@
         <p><?=$article['contenu']?></p>
         <p><?=$article['dateCreation']?></p>
         <?php if (@$_SESSION['id_role'] == 1) { ?>
-        <a href="?p=deleteArticle&id=<?= $article['id_article'] ?>">Supprimer</a>
+            <button class="btn btn-outline btn-error"><a href="?p=deleteArticle&id=<?= $article['id_article'] ?>">Supprimer</a></button> 
         <?php } ?>
     </div>
