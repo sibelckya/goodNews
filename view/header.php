@@ -21,7 +21,7 @@
 
                 <?php foreach ($menu as $categories) { ?>
                     <li>
-                        <a href="?p=categorie&id=<?= $categories['idCategorie'] ?>"> <?= $categories['nom'] ?></a>
+                        <a href="?p=categorie&id=<?= $categories['id_categorie'] ?>"> <?= $categories['nom'] ?></a>
 
                     </li>
                 <?php } ?>

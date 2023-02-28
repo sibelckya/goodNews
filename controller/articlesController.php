@@ -51,28 +51,20 @@ class articlesController
     public function setArticle()
     {
 
-        $this->id_categorie = $_POST['id_categorie'];
-        $this->titre = $_POST['titre'];
-        $this->contenu = $_POST['contenu'];
-        $this->image = $this->fileUpload();
-        $this->dateCreation = date("Y-m-d");
-        $this->id_user = $_SESSION['id_user'];
 
-        if ($this->titre != '' && $this->contenu != '' && $this->id_categorie != '' && $this->dateCreation != '') {
-            if ($this->setArticle()) {
-                $_SESSION['article_message'] = "Article Ajoutée ";
-                header('Location: index.php');
-                exit;
-            }
+        $image = $this->fileUpload();
+
+        $ajout = $this->model->setArticle($_POST['titre'], $_POST['contenu'], $image, $_SESSION['id_user'], $_POST['id_categorie']);
+        if ($ajout) {
+            echo "Article ajouté";
         } else {
-            echo '<h2>Veuiller remplir tout les champs</h2>';;
             $this->formAjoutArticle();
         }
     }
 
     public function fileUpload()
     {
-        //  var_dump($_FILES['fichier']);
+        var_dump($_FILES['image']);
 
         $fichier = explode('.', $_FILES['image']['name']);
         $extension = end($fichier); // recuperer l'extention du fichier ex : jpj png pdf ...

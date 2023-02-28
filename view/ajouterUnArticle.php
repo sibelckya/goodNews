@@ -34,7 +34,7 @@
         <label for="contenu">Selectionné la categorie</label>
         <select class="select select-primary w-full" name="id_categorie">
         <?php foreach ($categories as $categorie) { ?>
-                <option value="<?= $categorie['idCategorie'] ?>"> <?= $categorie['nom'] ?>
+                <option value="<?= $categorie['id_categorie'] ?>"> <?= $categorie['nom'] ?>
             <?php } ?>
         </select>
     </div>

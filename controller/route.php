@@ -23,7 +23,7 @@ switch (@$_GET['p']) {
         break;
 
     case 'connexion':
-        $user = new usersController;
+        $user = new UsersController;
         if(isset($_POST['email'])){
             $user->authentification();
         }else{
