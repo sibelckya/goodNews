@@ -1,28 +1,15 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.50.2/dist/full.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Inscription</title>
-</head>
-<body>
-
+<div class="flex justify-center ...">
 
 <form action="" method="post">
 
-
-    Nom : <input type="text" name="nom"><br>
-    Prénom : <input type="text" name="prenom"><br>
-    Tél : <input type="tel" name="tel"><br>
-    Email : <input type="email" name="email"><br>
-    Mdp : <input type="password" name="mdp"><br>
-    <button type="">S'inscrire</button>
+    Nom : <br> <input type="text" name="nom"  class="input input-bordered input-error w-full max-w-xs"><br>
+    Prénom : <br><input type="text" name="prenom"  class="input input-bordered input-error w-full max-w-xs"><br>
+    Tél : <br><input type="tel" name="tel" class="input input-bordered input-error w-full max-w-xs"><br>
+    Email : <br><input type="email" name="email" class="input input-bordered input-error w-full max-w-xs"><br>
+    Mot de passe: <br><input type="password" name="mdp" class="input input-bordered input-error w-full max-w-xs"><br>
+   <br> <button type="" class="btn btn-error">S'inscrire</button><br><br>
 
 </form>
+</div>
 </body>
 </html>

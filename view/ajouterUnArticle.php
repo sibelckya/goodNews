@@ -23,16 +23,16 @@
     </div>
     <div class="flex flex-col gap-1 mt-2">
         <label for="titre">Entrez le titre</label>
-        <input type="text" placeholder="Entrez le titre de l'article" name="titre" class="input input-bordered input-primary w-full" />
+        <input type="text" placeholder="Entrez le titre de l'article" name="titre" class="input input-bordered input-error w-full" />
     </div>
 
     <div class="flex flex-col gap-1 mt-2">
         <label for="contenu">Entrez le contenu</label>
-        <textarea class="textarea textarea-primary" placeholder="Entrez le contenu de l'article" name="contenu"></textarea>
+        <textarea class="textarea textarea-error" placeholder="Entrez le contenu de l'article" name="contenu"></textarea>
     </div>
     <div class="flex flex-col gap-1 mt-2">
         <label for="contenu">Selectionné la categorie</label>
-        <select class="select select-primary w-full" name="id_categorie">
+        <select class="select select-error w-full" name="id_categorie">
         <?php foreach ($categories as $categorie) { ?>
                 <option value="<?= $categorie['id_categorie'] ?>"> <?= $categorie['nom'] ?>
             <?php } ?>
@@ -40,10 +40,10 @@
     </div>
     <div class="flex flex-col gap-1 mt-2">
         <label for="fichier">Ajouter une image</label>
-        <input type="file" class="file-input file-input-bordered file-input-primary w-full" name="image" id="image">
+        <input type="file" class="file-input file-input-bordered file-input-error w-full" name="image" id="image">
     </div>
 
-    <label for="my-modal-3" class="btn btn-primary w-full mt-4">Ajouter</label>
+    <label for="my-modal-3" class="btn btn-error w-full mt-4">Ajouter</label>
     <input type="checkbox" id="my-modal-3" class="modal-toggle" />
     <div class="modal">
         <div class="modal-box relative">
@@ -51,7 +51,7 @@
             <p class="py-4">Est tu sur de vouloir ajouter l'article actuelle au site ?</p>
             <div class="flex flex-row justify-between ">
                 <label for="my-modal-3" class="btn btn-error w-52 mt-4">Annulé</label>
-                <button class="btn btn-primary w-52 mt-4">Ajouter</button>
+                <button class="btn btn-outline btn-error w-52 mt-4">Ajouter</button>
             </div>
 
         </div>
