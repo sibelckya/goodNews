@@ -24,6 +24,7 @@ class articlesController
 
     public function getArticles()
     {
+        
         $articles = $this->model->getArticles(); 
         include('view/articlesView.php');//ce code est fusionner
     }

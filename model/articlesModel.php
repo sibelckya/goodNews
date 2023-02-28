@@ -12,7 +12,7 @@ class articlesModel
     public function getArticles()
     {
         $requeteCategorie ="SELECT articles.*,categories.* FROM articles
-        LEFT JOIN categories ON categories.id_categorie=articles.id_categorie
+        INNER JOIN categories ON categories.id_categorie=articles.id_categorie
         ";
         return $this->bdd->query($requeteCategorie)->fetchAll();  
     }
