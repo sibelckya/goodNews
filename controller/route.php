@@ -13,6 +13,12 @@ switch (@$_GET['p']) {
         $articles = new articlesController;
         $articles->getArticleById($_GET['id']);
         break;
+
+    case 'categorie':
+        $articles = new articlesController;
+        $articles->getArticleByCat($_GET['id']);
+        break;   
+        
     case 'inscription':
         $user = new UsersController;
         if(isset($_POST['nom'])){
@@ -36,16 +42,16 @@ switch (@$_GET['p']) {
         header("Location: index.php");
         break;
 
-        case 'formAjoutArticle':
-            include_once('controller/articlesController.php');
-            $articles = new ArticlesController;
+    case 'formAjoutArticle':
+        include_once('controller/articlesController.php');
+        $articles = new ArticlesController;
     
-            if (isset($_POST['titre'])) {
-                $articles->setArticle();
-            } else {
-                $articles->formAjoutArticle();
+        if (isset($_POST['titre'])) {
+            $articles->setArticle();
+        } else {
+             $articles->formAjoutArticle();
             }
-            break;
+        break;
     // case 'setInscription':
     //     include('controller/usersController.php');
     //     $inscription = new usersController;

@@ -11,7 +11,10 @@ class articlesModel
     }
     public function getArticles()
     {
-        return $this->bdd->query("SELECT * FROM articles")->fetchAll();  
+        $requeteCategorie ="SELECT articles.*,categories.* FROM articles
+        LEFT JOIN categories ON categories.id_categorie=articles.id_categorie
+        ";
+        return $this->bdd->query($requeteCategorie)->fetchAll();  
     }
 
     public function getDernierArticles($limit)
@@ -20,12 +23,16 @@ class articlesModel
     }
     public function getArticleById($id)
     {  
-        return $this->bdd->query("SELECT * FROM articles WHERE id_article=$id")->fetch();
+        $requeteById="SELECT articles.*,categories.* FROM articles
+        LEFT JOIN categories ON categories.id_categorie=articles.id_categorie WHERE id_article=$id";
+        return $this->bdd->query($requeteById)->fetch();
     }
 
     public function getArticleByCat($id_cat)
     {
-        return $this->bdd->query("SELECT * FROM articles WHERE id_categorie=$id_cat")->fetchAll();
+        $requete = "SELECT articles.*,categories.* FROM articles
+        LEFT JOIN categories ON categories.id_categorie=articles.id_categorie WHERE categories.id_categorie=$id_cat";
+        return $this->bdd->query($requete)->fetchAll();
 
     }
 

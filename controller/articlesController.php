@@ -1,6 +1,7 @@
 <?php
 
-include('model/articlesModel.php');
+include_once('model/articlesModel.php');
+include_once('model/categoriesModel.php');
 
 class articlesController
 {
