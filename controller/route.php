@@ -52,18 +52,26 @@ switch (@$_GET['p']) {
              $articles->formAjoutArticle();
             }
         break;
-    // case 'setInscription':
-    //     include('controller/usersController.php');
-    //     $inscription = new usersController;
-    //     $inscription->inscription();
-    //     break;
-    // case 'authentification':
-    //     include('view/authentification.php');
-    //     break;
 
-    // case 'setAuth':
-    //     include('controller/usersController.php');
-    //     $authentification = new usersController;
-    //     $authentification->authentification();
-    //     break;
+
+        case 'deleteArticle':
+            if (@$_SESSION['id_role'] == 1) {
+    
+                $article = new articlesController;
+    
+                if (isset($_POST['id'])) {
+                    $article->deleteArticle();
+                } else {
+                    $article->formDeleteArticle();
+                }
+            } else {
+                echo "acces interdit";
+            }
+            break;
+    
+    
+        default:
+            $articles = new articlesController;
+            $articles->getArticles();
+            break;
 }

@@ -90,15 +90,22 @@ class articlesController
             return false;
         }
     }
-    // public function setArticle()
-    // {
-    //     $ajout= $this->model->setArticle($_POST['titre'], $_POST['contenu'], $_POST['image'], $_POST['id_user'], $_POST['id_categorie']);
-    //     if ($ajout) {
-    //         echo "<h1>Article ajouté</h1>";
-    //     } else {
-    //         $this->formAjoutArticle();
-    //     }
-    // }
+    public function formDeleteArticle()
+    {
+        include('view/supprimerArticle.php');
+    }
+
+    public function deleteArticle()
+    {
+    
+        $deleteArticle = $this->model->deleteArticle($_POST['id']);
+        if ($deleteArticle) {
+            echo "Article supprimé";
+        } else {
+            $this->formDeleteArticle();
+        }
+
+    }
     
 
 }
