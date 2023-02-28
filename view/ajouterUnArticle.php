@@ -40,7 +40,7 @@
     </div>
     <div class="flex flex-col gap-1 mt-2">
         <label for="fichier">Ajouter une image</label>
-        <input type="file" class="file-input file-input-bordered file-input-primary w-full" name="fichier">
+        <input type="file" class="file-input file-input-bordered file-input-primary w-full" name="image" id="image">
     </div>
 
     <label for="my-modal-3" class="btn btn-primary w-full mt-4">Ajouter</label>

@@ -10,4 +10,4 @@ Email:<?= @$user['email']?>
 Tel:<?= @$user['tel']?>
 <br>
 <br><br>
-<a href="index.php?page=modifierMonCompte" class="app-form-button">MODIFIER MON COMPTE</a>
+<a href="?p=modifierMonCompte" class="btn btn-primary">MODIFIER MON COMPTE</a><br><br>

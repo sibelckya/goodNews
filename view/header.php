@@ -25,35 +25,37 @@
 
                     </li>
                 <?php } ?>
-                <?php if (isset($_SESSION['nom'])){?>
-                <li>
-                    <a>
-                    <?=$_SESSION['nom']?>
-                    <?=$_SESSION['prenom']?><br>
-                    (<?=$_SESSION['role']?>)
-                    </a>
-                </li>
-                                 
-                <!-- Dans ce bloc, il permet d'afficher "ajouter une article" lorsque l'utilisateur est un administrateur-->
-                <?php if ($_SESSION['id_role']== 1){?>
-                <li> 
-                    <a href="?p=formAjoutArticle">Ajouter un article</a> 
-                </li>
-                <?php } ?>
-                <li>
-                    <a href="?p=deconnexion">Deconnexion</a>
-                </li>   
+                <?php if (isset($_SESSION['nom'])) { ?>
+                    <li>
+                        <a href="?p=monCompte">
+                            <?= $_SESSION['nom'] ?>
+                            <?= $_SESSION['prenom'] ?><br>
+                            (<?= $_SESSION['role'] ?>)
+                        </a>
+                    </li>
+                    <!-- Dans ce bloc, il permet d'afficher "ajouter une article" lorsque l'utilisateur est un administrateur-->
+                    <?php if ($_SESSION['id_role'] == 1) { ?>
+                        <li>
+                            <a href="?p=formAjoutArticle">Ajouter un article</a>
+                        </li>
+                    <?php } ?>
+                    <li>
+                        <a href="?p=deconnexion">Deconnexion</a>
+                    </li>
 
-                <?php }else{?>
+                <?php } else { ?>
 
-                <li>
-                    <a href="?p=inscription">Inscription</a>
-                </li>
-                <li>
-                    <a href="?p=connexion">Connexion</a>
-                </li>
+                    <li>
+                        <a href="?p=inscription">Inscription</a>
+                    </li>
+                    <li>
+                        <a href="?p=connexion">Connexion</a>
+                    </li>
+                    <li>
+                        <a href="?p=contact">Contact</a>
+                    </li>
                 <?php } ?>
-               
+
             </ul>
         </div>
     </div>
