@@ -1,5 +1,6 @@
-<h1>Authentification</h1>
+    <h1 class="flex justify-center ...">Connexion</h1>
 <div class="flex justify-center ...">
+
 <form action="" method="post">
 
     Email : <br><input type="email" name="email" class="input input-bordered input-error w-full max-w-xs"><br>

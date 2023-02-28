@@ -14,7 +14,7 @@
 <body>
     <div class="navbar">
         <div class="flex-1">
-            <a class="btn btn-ghost normal-case text-xl" href="">GoodNews</a>
+            <a class="btn btn-ghost normal-case text-xl" hr>GoodNews</a>
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
