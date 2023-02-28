@@ -29,9 +29,9 @@ class articlesController
     }
     public function getArticleById($id)
     {
-        $articles = $this->model->getArticleById($id); // tableaux
+        $article = $this->model->getArticleById($id); // tableaux
         
-        include('view/articlesView.php');
+        include('view/articleView.php');
         
     }
 
