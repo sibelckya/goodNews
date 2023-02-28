@@ -37,11 +37,12 @@ class UsersController
         $user = $this->model->getUserByEmail($email);
 
         if (password_verify($mdp, $user['mdp'])){
-            $_SESSION['id_user'] = $user['id_user'];
+           
             $_SESSION['nom'] = $user['nom'];
             $_SESSION['prenom'] = $user['prenom'];
             $_SESSION['role'] = $user['role'];
             $_SESSION['id_role'] = $user['id_role'];
+            $_SESSION['id_user'] = $user['id_user'];
 
             header("Location: index.php");//redirection vers index.php
         }else{
