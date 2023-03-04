@@ -51,10 +51,21 @@ class UsersModel
     // {
     //     return $this->bdd->query("SELECT * FROM utilisateurs WHERE id='$id'")->fetch(PDO::FETCH_ASSOC);
     // }
-
-    public function updateUser()
-    {
-        #code
+    public function updateUser($nom, $prenom, $tel, $email, $id_user): void {
+        $updateUserStmt = $this->bdd->prepare("
+            UPDATE utilisateurs
+            SET nom = :nom,
+                prenom = :prenom,
+                tel = :tel,
+                email = :email
+            WHERE id_user = :id_user
+        ");
+        $updateUserStmt->bindValue(':nom', $nom);
+        $updateUserStmt->bindValue(':prenom', $prenom);
+        $updateUserStmt->bindValue(':tel', $tel);
+        $updateUserStmt->bindValue(':email', $email);
+        $updateUserStmt->bindValue(':id_user', $id_user);
+        $updateUserStmt->execute();
     }
     public function deleteUser($id)
     {

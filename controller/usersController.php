@@ -49,36 +49,49 @@ class UsersController
             $this->connexion();
         }
     }
+    public function monCompte()
+    {
+        $id_user = $_SESSION['id_user'];
+        $this->model = new usersModel; // initialisation du modèle
+        $user = $this->model->getUserById($id_user);
+        include('view/monCompte.php');
+    }
+    
+    public function modifierMonCompte()
+    {
+        $id_user = $_SESSION['id_user'];
+        $this->model = new usersModel; // initialisation du modèle
+        $user = $this->model->getUserById($id_user);
+        include('view/modifierMonCompte.php');
+    }
+    
+    public function modification()
+    {
+        $nom = trim($_POST['nom']);
+        $prenom = trim($_POST['prenom']);
+        $tel = trim($_POST['tel']);
+        $email = trim($_POST['email']);
+        $id_user = $_SESSION['id_user'];
+        $this->model = new usersModel; // initialisation du modèle
+    
+        if ($nom != '' && $prenom != '' && $email != '') {
+            // mise à jour des informations utilisateur
+            $this->model->updateUser($nom, $prenom, $tel, $email, $id_user);
+    
+            // mise à jour des informations de session
+            $_SESSION["nom"] =  $nom;
+            $_SESSION["prenom"] = $prenom;
+            $_SESSION["email"] = $email;
+    
+            echo "<h1>modification OK</h1>";
+        } else {
+            $user = $this->model->getUserByEmail($email);
+            $erreur = "Merci d'entrer des informations correctes";
+            include('view/modifierMonCompte.php');
+        }
+    }
 
 
-    // public function authentification()
-    // {
-
-    //     $this->email = trim($_POST['email']);
-    //     $this->mdp = $_POST["mdp"];
-
-
-    //     if ($this->email != '' && $this->mdp != '') {
-    //         $user = $this->getUserByEmail();
-
-    //         if (password_verify($this->mdp, $user["mdp"])) {
-
-    //             $_SESSION["nom"] = $user['nom'];
-    //             $_SESSION["prenom"] = $user['prenom'];
-    //             $_SESSION["email"] = $user['email'];
-    //             $_SESSION["id"] = $user['id'];
-
-    //             header('Location: index.php');
-    //             echo "<h1>Authentification OK</h1>";
-    //         } else {
-    //             $erreur = "Email ou mdp incorrecte";
-    //             include('view/authentification.php');
-    //         }
-    //     } else {
-    //         $erreur = "Merci d'entrer les informations correctement";
-    //         include('view/authentification.php');
-    //     }
-    // }
 }
 
 // github

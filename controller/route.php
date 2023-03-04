@@ -68,6 +68,20 @@ switch (@$_GET['p']) {
                 echo "acces interdit";
             }
             break;
+            case 'monCompte':
+                $userController = new UsersController();
+                $userController->monCompte();
+                break;
+        
+            case 'modifierMonCompte':
+                $userController = new UsersController();
+                $userController->modifierMonCompte();
+                break;
+        
+            case 'modification':
+                $userController = new UsersController();
+                $userController->modification();
+                break;
     
     
         default:
