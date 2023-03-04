@@ -16,6 +16,8 @@
     <br>
     <button>Ajouter</button>
 </form> -->
+<body class="flex flex-col min-h-screen">
+    
 
 <form class="w-96 mx-auto mt-4" action="" method="post" enctype="multipart/form-data">
     <div class="text-center">
@@ -60,3 +62,4 @@
     <br>
 
 </form>
+</body>

@@ -11,7 +11,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="flex flex-col min-h-screen">
     <div class="navbar">
         <div class="flex-1">
             <a href="?p=articles" class="btn btn-ghost normal-case text-xl" >GoodNews</a>
