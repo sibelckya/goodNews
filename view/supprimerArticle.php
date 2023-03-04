@@ -1,14 +1,16 @@
-<h1 class="flex justify-center ...">Supprimer un article</h1>
-<div class="flex justify-center ..."> 
-    
-<p>êtes-vous sur de vouloir supprimer cet article?</p>
+<h1 class="text-center">Supprimer un article</h1><br>
+
+<div class="grid place-items-center">  
+Êtes-vous sur de vouloir supprimer cet article?
 
 <form action="" method="post">
 
     <input type="hidden" name="id" value="<?=$_GET['id']?>"><br>
-    <label for="my-modal-3" class="btn btn-error w-52 mt-4">Annulé</label>
+    <button class="btn btn-error">Annulé</button>
     <button  class="btn btn-error">Supprimer</button><br>
 </form>
+
+
 
 </div>
 <br>
