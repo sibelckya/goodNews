@@ -29,7 +29,7 @@ class UsersModel
     }
 
     public function getUserById($id){
-        return $this->bdd->query("SELECT * FROM users WHERE id_user=$id")->fetch();
+        return $this->bdd->query("SELECT * FROM utilisateurs WHERE id_user=$id")->fetch();
     }
 
 

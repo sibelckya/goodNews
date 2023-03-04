@@ -27,7 +27,7 @@
                 <?php } ?>
                 <?php if (isset($_SESSION['nom'])){?>
                 <li>
-                    <a>
+                    <a href="?p=monCompte">
                     <?=$_SESSION['nom']?>
                     <?=$_SESSION['prenom']?><br>
                     (<?=$_SESSION['role']?>)
