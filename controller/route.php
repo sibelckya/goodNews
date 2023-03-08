@@ -82,6 +82,11 @@ switch (@$_GET['p']) {
                 $userController = new UsersController();
                 $userController->modification();
                 break;
+
+            case 'contact':
+                // affichage de la page de contact
+                include('view/contact.php');
+                break;
     
     
         default:

@@ -39,6 +39,9 @@
                             <a href="?p=inscription">Inscription</a>
                             <a href="?p=connexion">Connexion</a>
                         <?php } ?>
+                        
+                            <a href="?p=contact">Contact</a>
+                    
                     </div>
 
                     <div class="md:hidden flex items-right">
@@ -100,6 +103,9 @@
                 <a href="?p=connexion">Connexion</a>
             </li>
             <?php } ?>
+            <li>
+                        <a href="?p=contact">Contact</a>
+                    </li>
 
         </ul>
         </div>
